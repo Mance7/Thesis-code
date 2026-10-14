@@ -179,3 +179,45 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+# sequencing data and references (never commit)
+*.bam
+*.bai
+*.cram
+*.sam
+*.fastq
+*.fq
+*.fastq.gz
+*.fq.gz
+*.fast5
+*.pod5
+*.fa
+*.fna
+*.fasta
+*.fa.gz
+*.fna.gz
+*.amb
+*.ann
+*.bwt
+*.pac
+*.sa
+*.fai
+*.bed.gz
+*.rds
+*.tgz
+*.tar.gz
+
+# big outputs and builds
+data/
+results/
+logs/
+build/
+*.docx
+*.pdf
+
+# system / tool clutter
+.Rhistory
+.RData
+__pycache__/
+.ipynb_checkpoints/
+Thumbs.db
+.DS_Store
