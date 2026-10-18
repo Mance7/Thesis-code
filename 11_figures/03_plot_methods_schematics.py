@@ -132,13 +132,12 @@ def fig_design():
     box(ax, 0.01, 0.02, 0.98, 0.235, "", fc="#EAF5F3", ec="#A6D3CE")
     label(ax, 0.02, 0.228, "3  External short-read cohorts (open access; direction of short-fragment features only)", fontweight="bold", fontsize=10, color=TEAL, ha="left")
     ext = [("GSE71378", "Snyder 2016\n3 liver cancer vs 6 non-cancer\n(same batch); no HBV carriers", False),
-           ("CRA001537 pilot", "Zhang 2020, deep bisulfite\n1 HCC, 1 hepatitis, 1 healthy\n(descriptive, no p value)", False),
-           ("CRA001537 low-pass", "Zhang 2020, 54 samples\n8 HCC vs 17 hepatitis (test);\ncirrhosis, healthy, post-surgery", True)]
+           ("CRA001537", "Zhang 2020, low-pass bisulfite, 54 samples\n8 HCC vs 17 hepatitis (test);\ncirrhosis, healthy, post-surgery", False)]
     for i, (t, s, pend) in enumerate(ext):
-        x = 0.02 + i * 0.325
-        box(ax, x, 0.04, 0.305, 0.15, "", fc="white", ec=TEAL, lw=1.3, ls=("--" if pend else "-"))
-        label(ax, x + 0.152, 0.168, t + ("  (analysis pending)" if pend else ""), fontweight="bold", fontsize=8.6, ha="center")
-        label(ax, x + 0.152, 0.098, s, fontsize=7.9, ha="center", linespacing=1.4)
+        x = 0.02 + i * 0.49
+        box(ax, x, 0.04, 0.47, 0.15, "", fc="white", ec=TEAL, lw=1.3, ls=("--" if pend else "-"))
+        label(ax, x + 0.235, 0.168, t + ("  (analysis pending)" if pend else ""), fontweight="bold", fontsize=8.6, ha="center")
+        label(ax, x + 0.235, 0.098, s, fontsize=7.9, ha="center", linespacing=1.4)
     arrow(ax, 0.16, 0.56, 0.16, 0.50, color=NAVY_M); arrow(ax, 0.16, 0.285, 0.16, 0.255, color="#C7B3E3")
     fig.savefig(f"{OUT}/fig3_design.png", dpi=300)
 

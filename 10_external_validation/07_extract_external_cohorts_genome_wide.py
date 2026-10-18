@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-09_extract_external_cohorts_genome_wide.py
+07_extract_external_cohorts_genome_wide.py
 
 External validation, genome-wide extraction for the short-read cohorts (Methods 2.13).
-Same per-sample outputs and fragment rules as 07_extract_external_cohorts.py, with three additions:
+Same per-sample outputs and fragment rules as 05_extract_external_cohorts.py, with three additions:
   * --sra-blocks B (wgs): the GSE71378 FASTQ files on ENA are coordinate-sorted, so the head of a file
     is chr1 0-7 Mb only. Instead, B evenly spaced blocks of --pairs/B read pairs are pulled from NCBI SRA
     (fastq-dump -N/-X, needs sra-tools), which samples the genome in proportion to coverage
@@ -24,8 +24,8 @@ C->T, read 2 G->A; pairs whose read 1 disagrees with its contig strand are dropp
 are indexed, so promoters outside them are left out.
 Each finished sample is saved in OUT/samples/<run>.npz and skipped when the same command is run again.
 
-Example (GSE71378 genome-wide, as in 10_run_gse71378_genome_wide.sh):
-  python 09_extract_external_cohorts_genome_wide.py --mode wgs --runs runs_gse71378.tsv \
+Example (GSE71378 genome-wide, as in 08_run_gse71378_genome_wide.sh):
+  python 07_extract_external_cohorts_genome_wide.py --mode wgs --runs runs_gse71378.tsv \
      --only-groups liver_cancer,healthy,noncancer_disease --sra-blocks 1000 --sra-par 8 \
      --ref GRCh38.fna --promoters PROM --out OUT_GSE --pairs 300000 -t 8 --prefetch 1
 sheet (bs mode): lines "run group [label]", no header. runs file (wgs mode): TSV with columns run, group, batch.

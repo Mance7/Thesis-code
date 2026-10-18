@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# 08_run_external_cohorts.sh
+# 06_run_external_cohorts.sh
 #
-# Runs the extraction of 07_extract_external_cohorts.py for both short-read cohorts:
+# Runs the extraction of 05_extract_external_cohorts.py for both short-read cohorts:
 #   1) GRCh38 reference and bwa index (01_download_reference.sh), if not there yet
 #   2) converted reference for bisulfite reads: GRCh38 chr1-8 as a C->T copy (f_chrN)
 #      and a G->A copy (r_chrN), bwa index built once (a few hours, in the background)
@@ -18,7 +18,7 @@
 #         ev_motifs.tsv.gz, ev_promoters.tsv.gz, wig/); logs in OUT/logs
 #
 # Usage:
-#   bash 08_run_external_cohorts.sh -o OUT [--promoters BED] [-t THREADS] [--gsa-base URL]
+#   bash 06_run_external_cohorts.sh -o OUT [--promoters BED] [-t THREADS] [--gsa-base URL]
 #
 # Requires: conda env "thesis" (python 3.12, bwa 0.7.19, samtools 1.23.1, curl, wget)
 
@@ -78,7 +78,7 @@ BSPID=$!
 # 3) GSE71378: 15 runs from ENA
 if [ ! -f "$M/gse.done" ]; then
   say "GSE71378 extraction"
-  nice -n 10 python "$HERE/07_extract_external_cohorts.py" --mode wgs --runs "$HERE/runs_gse71378.tsv" \
+  nice -n 10 python "$HERE/05_extract_external_cohorts.py" --mode wgs --runs "$HERE/runs_gse71378.tsv" \
      --only-groups liver_cancer,healthy,noncancer_disease --ref "$REF" --promoters "$PROM" \
      --out "$B/out_gse" -t "$T" --jobs 1 >> "$L/ev_gse.log" 2>&1
   grep -q "NOT COMPLETE" <(tail -3 "$L/ev_gse.log") || { [ -s "$B/out_gse/ev_summary.tsv" ] && touch "$M/gse.done"; }
@@ -90,7 +90,7 @@ say "waiting for the converted index"; wait $BSPID
 [ -f "$M/bsref.done" ] || { say "STOP: converted index failed, see $L/build_bs.log and $L/bwa_index_bs.log"; exit 1; }
 if [ ! -f "$M/zhang.done" ]; then
   say "CRA001537 extraction"
-  nice -n 10 python "$HERE/07_extract_external_cohorts.py" --mode bs --gsa-base "$GSA" --sheet "$HERE/runs_zhang.tsv" \
+  nice -n 10 python "$HERE/05_extract_external_cohorts.py" --mode bs --gsa-base "$GSA" --sheet "$HERE/runs_zhang.tsv" \
      --ref "$BSREF" --promoters "$PROM" --out "$B/out_zhang" --pairs 4000000 -t "$T" --jobs 1 >> "$L/ev_zhang.log" 2>&1
   grep -q "NOT COMPLETE" <(tail -3 "$L/ev_zhang.log") || { [ -s "$B/out_zhang/ev_summary.tsv" ] && touch "$M/zhang.done"; }
   say "CRA001537 step finished (done marker: $([ -f "$M/zhang.done" ] && echo yes || echo NO, rerun later))"

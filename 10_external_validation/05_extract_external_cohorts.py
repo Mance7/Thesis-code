@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-07_extract_external_cohorts.py
+05_extract_external_cohorts.py
 
 External validation, extraction for the short-read cohorts (Methods 2.13):
   GSE71378 (plain WGS, FASTQ from ENA)                       --mode wgs --runs runs_gse71378.tsv
@@ -23,9 +23,9 @@ resumable range requests, the next run downloads while the current one aligns, a
 Each finished sample is saved in OUT/samples/<run>.npz, so the same command can be rerun to finish missing samples.
 
 Examples (env "thesis"; PROM = promoters_gene_level.bed from 01_annotation):
-  python 07_extract_external_cohorts.py --mode wgs --runs runs_gse71378.tsv --only-groups liver_cancer,healthy,noncancer_disease \
+  python 05_extract_external_cohorts.py --mode wgs --runs runs_gse71378.tsv --only-groups liver_cancer,healthy,noncancer_disease \
      --ref GRCh38.fna --promoters PROM --out OUT_GSE -t 8
-  python 07_extract_external_cohorts.py --mode bs --gsa-base ftp://download.big.ac.cn/gsa/CRA001537 --sheet runs_zhang.tsv \
+  python 05_extract_external_cohorts.py --mode bs --gsa-base ftp://download.big.ac.cn/gsa/CRA001537 --sheet runs_zhang.tsv \
      --ref ref_bs/ref_bs.fa --promoters PROM --out OUT_ZHANG --pairs 4000000 -t 8
 sheet (bs mode): lines "run group [label]", no header. runs file (wgs mode): TSV with columns run, group, batch.
 

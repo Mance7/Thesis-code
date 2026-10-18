@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-11_test_external_cohorts.py
+09_test_external_cohorts.py
 
-Tests on the outputs of 07_ or 09_extract_external_cohorts*.py (Methods 2.13), case group
+Tests on the outputs of 05_ or 07_extract_external_cohorts*.py (Methods 2.13), case group
 against control group(s). Size tests are one-sided exact Mann-Whitney tests in the
 discovery direction (both directions are reported).
   1. size: R_sr = n(256-600) / n(100-250) and the shares <=150, 151-255 and 256-650 bp
@@ -32,7 +32,7 @@ import argparse, os, re, sys, numpy as np, pandas as pd
 from scipy.stats import mannwhitneyu, spearmanr
 
 ap = argparse.ArgumentParser(description="External cohorts: size, promoter-set and end-motif tests")
-ap.add_argument("--dir", required=True, help="output folder of 07_ or 09_extract_external_cohorts*.py (ev_summary.tsv, ...)")
+ap.add_argument("--dir", required=True, help="output folder of 05_ or 07_extract_external_cohorts*.py (ev_summary.tsv, ...)")
 ap.add_argument("--sheet", required=True, help="TSV with header: run, group (only these runs are used)")
 ap.add_argument("-o", "--out", required=True, help="output folder")
 ap.add_argument("--prefix", default="ev", help="prefix of the output file names")

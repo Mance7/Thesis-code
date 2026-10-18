@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# 10_run_gse71378_genome_wide.sh
+# 08_run_gse71378_genome_wide.sh
 #
 # Genome-wide redo of the GSE71378 extraction for the 15 liver cancer, healthy and
 # non-cancer disease runs. The ENA FASTQ files of GSE71378 are coordinate-sorted (the
 # head of each file is chr1 0-7 Mb), so reads are pulled from NCBI SRA as evenly
 # spaced blocks instead: GBLOCKS blocks x (GPAIRS / GBLOCKS) read pairs per run,
-# aligned to GRCh38 with 09_extract_external_cohorts_genome_wide.py.
+# aligned to GRCh38 with 07_extract_external_cohorts_genome_wide.py.
 # Gives genome-wide R_sr, size histograms and 5' end motifs (too sparse for
 # promoters or ichorCNA). Restartable: finished runs are kept in OUT/out_gse_v3/samples.
 #
@@ -13,7 +13,7 @@
 # Output: OUT/out_gse_v3/ev_summary.tsv, ev_hist.tsv.gz, ev_motifs.tsv.gz; log OUT/logs/ev_gse_v3.log
 #
 # Usage:
-#   bash 10_run_gse71378_genome_wide.sh -o OUT [--ref REF] [--promoters BED] [-t THREADS]
+#   bash 08_run_gse71378_genome_wide.sh -o OUT [--ref REF] [--promoters BED] [-t THREADS]
 #                                       [--blocks GBLOCKS] [--pairs GPAIRS]
 #
 # Requires: conda env "thesis" (python 3.12, bwa 0.7.19) and sra-tools (fastq-dump) on PATH
@@ -54,7 +54,7 @@ for x in bwa curl python fastq-dump; do command -v $x >/dev/null || { say "STOP:
 [ -s "$PROM" ] || { say "STOP: promoter BED not found: $PROM"; exit 1; }
 
 say "GSE71378 genome-wide ($GBLOCKS blocks, $GPAIRS pairs per run)"
-python "$HERE/09_extract_external_cohorts_genome_wide.py" --mode wgs --runs "$HERE/runs_gse71378.tsv" \
+python "$HERE/07_extract_external_cohorts_genome_wide.py" --mode wgs --runs "$HERE/runs_gse71378.tsv" \
   --only-groups liver_cancer,healthy,noncancer_disease --sra-blocks "$GBLOCKS" --sra-par 8 \
   --ref "$REF" --promoters "$PROM" --out "$B/out_gse_v3" --pairs "$GPAIRS" -t "$T" --prefetch 1 \
   >> "$B/logs/ev_gse_v3.log" 2>&1

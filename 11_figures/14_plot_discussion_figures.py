@@ -222,9 +222,9 @@ def fig_roadmap():
     W = 0.233
     cards = {
         0: [("Discovery, 8 HCC vs 6 HBV", "ONT and PacBio of the same plasma;\nreplicated: R, 1–2 kb entropy,\nC-end and promoter motifs", NAVY, "solid"),
-            ("Open short-read checks", "GSE71378: not replicated;\nCRA001537 pilot: same direction\n(one sample per group)", NAVY, "solid")],
-        1: [("CRA001537 low-pass WGBS", "8 untreated HCC vs 17 hepatitis\n(matches the 8 vs 6 design); also\n17 cirrhosis, 9 post-surgery,\n3 healthy; R_sr fixed in advance;\nanalysis pending", TEAL, "dash"),
-            ("Larger short-read HCC cohorts", "151–255 bp entropy and\nHCC-expressed promoter pooling", TEAL, "dash")],
+            ("Open short-read checks", "GSE71378 and CRA001537: R_sr not\nhigher in HCC; CRA001537: more\nfragments up to 150 bp (exploratory)", NAVY, "solid")],
+        1: [("GSE71378 genome-wide redo", "first 3 million pairs covered only\nthe first 7 Mb of chr1; rerun on\nall chromosomes", TEAL, "dash"),
+            ("Larger short-read HCC cohorts", "without bisulfite conversion;\n151–255 bp entropy, promoter pooling", TEAL, "dash")],
         2: [("Independent long-read cohort\nwith HBV controls", "R with a platform-specific threshold,\n1–2 kb entropy, C-end and\npromoter motifs", PB, "dash"),
             ("Healthy and cirrhosis groups", "is the extra liver cfDNA specific\nto HCC or to advanced liver disease?", PB, "dash"),
             ("Methylation tissue of origin", "PacBio kinetics or ONT signal: does\nthe liver share track R? link stage,\nAFP, tumour size, cirrhosis", PB, "dash")],

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-12_test_zhang_cohort.py
+10_test_zhang_cohort.py
 
 CRA001537 low-pass cohort (Zhang et al. 2020): group comparisons on the fixed short-read size
 measures (test only; nothing is refit). R_sr = fragments 256-600 bp / 100-250 bp, fixed before any
@@ -15,7 +15,7 @@ Questions:
 Tests: two-sided Mann-Whitney U (permutation p for small groups, else normal approximation with
 tie correction), AUC = P(a > b), bootstrap 95% CI of the median difference.
 
-Input : DIR/ev_summary.tsv (from 07_ or 09_extract_external_cohorts*.py, bs mode)
+Input : DIR/ev_summary.tsv (from 05_ or 07_extract_external_cohorts*.py, bs mode)
         sample sheet TSV with columns run, group, label, detail (detail = early stage HCC / advanced HCC)
 Output: OUT/zhang_tests.tsv, OUT/zhang_per_sample.tsv, OUT/zhang_groups.tsv
 """
