@@ -221,3 +221,34 @@ __pycache__/
 .ipynb_checkpoints/
 Thumbs.db
 .DS_Store
+# More data and result files (never commit patient or sequencing data)
+*.gz
+*.bz2
+*.zip
+*.7z
+*.sra
+*.npz
+*.npy
+*.mmi
+*.bed
+*.wig
+*.bw
+*.bigwig
+*.bedgraph
+*.vcf
+*.parquet
+*.h5
+*.xlsx
+*.csv
+*.tsv
+*.png
+*.svg
+*.jpg
+*.tiff
+# sample sheets and metadata
+*samples*.csv
+*meta*.tsv
+*MetaData*/
+# small run lists and motif families used by the scripts are kept
+!10_external_validation/runs_*.tsv
+!06_end_motifs/motif_families_5bin.tsv

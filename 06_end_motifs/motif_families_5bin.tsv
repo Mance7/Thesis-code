@@ -1,0 +1,42 @@
+# family	size_bin	region	motif	direction  (+ = HCC higher; bins from 04_remap_motif_bins.py --scheme 5bin)
+# F1 literature watchlist (Jiang 2020 / Jin 2021), genome_wide, two-sided
+F1_literature	<=255bp	genome_wide	CCCA	two
+F1_literature	<=255bp	genome_wide	CCAG	two
+F1_literature	<=255bp	genome_wide	CCTG	two
+F1_literature	<=255bp	genome_wide	AAAA	two
+F1_literature	<=255bp	genome_wide	TAAA	two
+F1_literature	<=255bp	genome_wide	TTTT	two
+F1_literature	256-650bp	genome_wide	CCCA	two
+F1_literature	256-650bp	genome_wide	CCAG	two
+F1_literature	256-650bp	genome_wide	CCTG	two
+F1_literature	256-650bp	genome_wide	AAAA	two
+F1_literature	256-650bp	genome_wide	TAAA	two
+F1_literature	256-650bp	genome_wide	TTTT	two
+F1_literature	651-2000bp	genome_wide	CCCA	two
+F1_literature	651-2000bp	genome_wide	CCAG	two
+F1_literature	651-2000bp	genome_wide	CCTG	two
+F1_literature	651-2000bp	genome_wide	AAAA	two
+F1_literature	651-2000bp	genome_wide	TAAA	two
+F1_literature	651-2000bp	genome_wide	TTTT	two
+F1_literature	2001-5000bp	genome_wide	CCCA	two
+F1_literature	2001-5000bp	genome_wide	CCAG	two
+F1_literature	2001-5000bp	genome_wide	CCTG	two
+F1_literature	2001-5000bp	genome_wide	AAAA	two
+F1_literature	2001-5000bp	genome_wide	TAAA	two
+F1_literature	2001-5000bp	genome_wide	TTTT	two
+F1_literature	>5000bp	genome_wide	CCCA	two
+F1_literature	>5000bp	genome_wide	CCAG	two
+F1_literature	>5000bp	genome_wide	CCTG	two
+F1_literature	>5000bp	genome_wide	AAAA	two
+F1_literature	>5000bp	genome_wide	TAAA	two
+F1_literature	>5000bp	genome_wide	TTTT	two
+# F2 Tier 1/2 motifs (found in 1001-2000 bp), pooled promoter, one-sided in the discovered direction
+F2_tier_promoter	651-2000bp	is_promoter	CCAG	+
+F2_tier_promoter	651-2000bp	is_promoter	GGAG	+
+F2_tier_promoter	651-2000bp	is_promoter	ATTT	-
+F2_tier_promoter	651-2000bp	is_promoter	AGTT	-
+F2_tier_promoter	651-2000bp	is_promoter	CAGG	+
+F2_tier_promoter	651-2000bp	is_promoter	TGTG	+
+F2_tier_promoter	651-2000bp	is_promoter	ATCA	+
+F2_tier_promoter	651-2000bp	is_promoter	CTTT	+
+F2_tier_promoter	>5000bp	is_promoter	CATT	-
